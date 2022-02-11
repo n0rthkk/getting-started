@@ -1,10 +1,17 @@
 package org.acme.getting.started.data;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class Book {
 
 //    private Long id;
+    @NotBlank(message = "Name shouldn't be blank")
     private String name;
+    @NotBlank(message = "Name shouldn't be blank")
     private String author;
+    @Min(value = 1, message = "Number of pages should be at least 1")
+    private Integer pages;
 
     public Book() {
 
@@ -38,5 +45,13 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Integer getPages() {
+        return pages;
+    }
+
+    public void setPages(Integer pages) {
+        this.pages = pages;
     }
 }
